@@ -1,6 +1,15 @@
 default: conky yq docker
 
 vscode: vscode-config 
+shell: bash-profile
+
+bash-profile:
+	if [ -e ${HOME}/.profile ]; then \
+		echo 'Bash profile already present.' ;\
+		echo 'Renaming to ~/.profile.original...' ;\
+		mv ${HOME}/.profile ${HOME}/.profile.original ;\
+		fi;
+	ln -s ${PWD}/config/bashrc ${HOME}/.bashrc
 
 conky:
 	sudo apt install conky-all -y
@@ -29,3 +38,14 @@ vscode-config:
 		mv ${HOME}/Library/ApplicationSupport/Code/User/settings.json ${HOME}/Library/ApplicationSupport/Code/User/settings.json.backup; \
 		ln -s ${PWD}/config/vscode.settings.json ${HOME}/Library/ApplicationSupport/Code/User/settings.json; \
 	fi;
+
+ubuntu-packages:
+	sudo apt install build-essential dnsutils net-tools neovim jq -y \
+	
+kubectl-latest:
+	curl -LO https://storage.googleapis.com/kubernetes-release/release/$(shell curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
+	sudo chmod +x kubectl && sudo mv kubectl /usr/local/bin/kubectl-v
+
+git-gitignore:
+	cat ${PWD}/git/*.gitignore > ${PWD}/git/gitignore_global_rendered
+	git config --global core.excludesfile ${PWD}/git/gitignore_global_rendered

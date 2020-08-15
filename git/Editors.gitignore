@@ -1,0 +1,13 @@
+# Editors 
+
+# IntelliJ
+.idea/**
+
+# Vistual Studio Code
+.vscode
+
+# Keys 
+# PGP/GPG
+secring.*
+# 
+.pem**
