@@ -29,6 +29,11 @@ set autoindent
 set smartindent
 set shiftwidth=2
 
+" Plugged
+call plug#begin('~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'
+call plug#end()
+
 " Color Syntax
 syntax on
 

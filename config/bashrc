@@ -11,6 +11,7 @@ set -o vi
 # PS1
 export PS1="\[\033[38;5;6m\]\w\[$(tput sgr0)\] [\[$(tput sgr0)\]\[\033[38;5;3m\]\t\[$(tput sgr0)\]] \$?\n \[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
-alias l="ls"
-alias ll="ls -lah"
+alias l="ls -ltr --color"
+alias ll="ls -lah --color"
+alias ls="ls --color"
 alias repos="cd ${HOME}/Workspace/Repos"
