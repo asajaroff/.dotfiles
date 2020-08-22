@@ -1,3 +1,5 @@
+KOPS_VERSION=1.15.3
+# KUBECTL_VERSION=(shell curl )
 default: conky yq docker
 
 vscode: vscode-config 
@@ -10,6 +12,12 @@ bash-profile:
 		mv ${HOME}/.profile ${HOME}/.profile.original ;\
 		fi;
 	ln -s ${PWD}/config/bashrc ${HOME}/.bashrc
+
+bash-completions:
+	curl -LO https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+	mkdir -p ${HOME}/.config/opt
+	mv git-completion.bash ${HOME}/.config/opt/
+	echo "source ${HOME}/.config/opt/git-completion.bash" >> ${HOME}/.dotfiles/aliases
 
 conky:
 	sudo apt install conky-all -y
@@ -33,12 +41,34 @@ docker-install:
 ubuntu-packages:
 	sudo apt install curl httpie build-essential dnsutils net-tools neovim jq -y \
 	
-kubernetes-tools:
+# Cloud Tools
+#
+#
+
+cloud-tools: awscli kubectl kops terraform
+awscli:
+	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+	unzip awscliv2.zip
+	sudo ./aws/install
+
+kubectl:
 	curl -LO https://storage.googleapis.com/kubernetes-release/release/$(shell curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
 	sudo chmod +x kubectl && sudo mv kubectl /usr/local/bin/kubectl-v
 	curl -LO https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
 	sudo chmod +x stern_linux_amd64
 	sudo mv stern_linux_amd64 /usr/local/bin/stern
+
+kops:
+	curl -LO https://github.com/kubernetes/kops/releases/download/v$(KOPS_VERSION)/kops-linux-amd64
+	chmod +x kops-linux-amd64
+	sudo mv kops-linux-amd64 /usr/local/bin/kops-$(KOPS_VERSION)
+	sudo ln -sf /usr/local/bin/kops-$(KOPS_VERSION) /usr/local/bin/kops
+
+terraform:
+	curl -LO https://releases.hashicorp.com/terraform/0.13.0/terraform_0.13.0_linux_amd64.zip
+	unzip terraform_0.13.0_linux_amd64.zip
+	sudo mv terraform_0.13.0_linux_amd64.zip /usr/local/bin/terraform-v0.13.0
+	sudo ln -sf /usr/local/bin/terraform-v0.13.0 /usr/local/bin/terraform
 
 # Git Related configuration
 #
@@ -51,7 +81,6 @@ git-gitignore:
 # Editors
 #
 # Vim
-vim: vim-plugged
 vim-plugged:
 	sh -c 'curl -fLo "${$HOME}.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
