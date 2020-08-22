@@ -1,7 +1,11 @@
 #!/bin/bash
 
+alias ll='ls -lah --color'
+alias ls='ls --color'
+alias l='ls -ltr --color'
+
 # VS Code 
-export EDITOR='code --wait'
+export EDITOR='nvim'
 
 # Extend PATH
 export PATH=~/.local/bin:$PATH
@@ -11,7 +15,6 @@ alias k="/usr/local/bin/kubectl"
 
 # Export Workplace/
 export WORKSPACE=~/Workspace
-export REPOS="$WORKSPACE/Repos"
 export LOGS="$WORKSPACE/Logs"
 
 # Git aliases
@@ -34,21 +37,19 @@ alias glo='git log --pretty="oneline"'
 alias glol='git log --graph --oneline --decorate'
 
 # Source external configurations
-source ~/.dotfiles/functions/git.sh 
-source ~/.dotfiles/functions/kubernetes.sh
-source ~/.dotfiles/functions/movement.sh
-source ~/.dotfiles/functions/terraform.sh
-source ~/.dotfiles/functions/aws.sh
+# source ~/.dotfiles/functions/git.sh 
+# source ~/.dotfiles/functions/kubernetes.sh
+# source ~/.dotfiles/functions/movement.sh
+# source ~/.dotfiles/functions/terraform.sh
+# source ~/.dotfiles/functions/aws.sh
 
 # Source TW Configs
-source ~/.dotfiles/aliases-tw
+# source ~/.dotfiles/aliases-tw
 
 # Aliases
-alias terraform=$(ls -1 /usr/local/bin/terraform-0.12* | tail -n 1 )
-
 alias vimrc="vim ~/.dotfiles/vimrc"
 alias zshrc="vim ~/.dotfiles/zshrc"
-alias bashrc="vim ~/.dotfiles/bashrc"
+alias bashrc="vim ~/.dotfiles/config/bashrc"
 alias tmuxrc="vim ~/.dotfiles/tmux.conf"
 alias aliasrc="vim ~/.dotfiles/aliases"
 alias dotFiles="cd ~/.dotfiles"

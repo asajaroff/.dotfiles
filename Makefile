@@ -15,9 +15,10 @@ bash-profile:
 
 bash-completions:
 	curl -LO https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+	curl -LO https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 	mkdir -p ${HOME}/.config/opt
 	mv git-completion.bash ${HOME}/.config/opt/
-	echo "source ${HOME}/.config/opt/git-completion.bash" >> ${HOME}/.dotfiles/aliases
+	mv git-prompt.sh ${HOME}/.config/opt
 
 conky:
 	sudo apt install conky-all -y

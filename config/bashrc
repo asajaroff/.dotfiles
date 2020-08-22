@@ -1,15 +1,24 @@
 # .bashrc
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
+if [ -f ~/.config/opt/git-prompt.sh ]; then
+  . ~/.config/opt/git-completion.bash
+  . ~/.config/opt/git-prompt.sh
+  export GIT_PS1_SHOWDIRTYSTATE=1
+  export PS1='\w$(__git_ps1 " (%s)")\$ '
+  parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  }
 fi
 
 # Vi mode
 set -o vi
 
 # PS1
-export PS1="\[\033[38;5;6m\]\w\[$(tput sgr0)\] [\[$(tput sgr0)\]\[\033[38;5;3m\]\t\[$(tput sgr0)\]] \$?\n \[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+export PS1="\[\033[38;5;6m\]\w\[$(tput sgr0)\] [\[$(tput sgr0)\]\[\033[38;5;3m\]\t\[$(tput sgr0)\]] \[\e[91m\]\$(parse_git_branch)\n \[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+
+# Aliases
+source ${HOME}/.dotfiles/aliases
 
 alias l="ls -ltr --color"
 alias ll="ls -lah --color"
