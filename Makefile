@@ -48,15 +48,15 @@ ubuntu-packages:
 
 cloud-tools: awscli kubectl kops terraform
 awscli:
-	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-	unzip awscliv2.zip
-	sudo ./aws/install
+	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+	unzip awscliv2.zip \
+	sudo ./aws/install 
 
 kubectl:
 	curl -LO https://storage.googleapis.com/kubernetes-release/release/$(shell curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
-	sudo chmod +x kubectl && sudo mv kubectl /usr/local/bin/kubectl-v
-	curl -LO https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
-	sudo chmod +x stern_linux_amd64
+	sudo chmod +x kubectl && sudo mv kubectl /usr/local/bin/kubectl-v \
+	curl -LO https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64 \
+	sudo chmod +x stern_linux_amd64 \
 	sudo mv stern_linux_amd64 /usr/local/bin/stern
 
 kops:
@@ -82,6 +82,13 @@ git-gitignore:
 # Editors
 #
 # Vim
+
+vim:
+	mkdir -p ${HOME}/.vim/undodir
+	mkdir -p ${HOME}/.vim/swapfiles
+	mkdir -p ${HOME}/.vim/backupfiles
+	ln -sf ${PWD}/vimrc ~/.vimrc
+
 vim-plugged:
 	sh -c 'curl -fLo "${$HOME}.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
