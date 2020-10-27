@@ -29,3 +29,10 @@ vscode-config:
 		mv ${HOME}/Library/ApplicationSupport/Code/User/settings.json ${HOME}/Library/ApplicationSupport/Code/User/settings.json.backup; \
 		ln -s ${PWD}/config/vscode.settings.json ${HOME}/Library/ApplicationSupport/Code/User/settings.json; \
 	fi;
+
+neovim-config:
+	mkdir ${HOME}/.vim/ \
+	mkdir ${HOME}/.vim/{undodir,swapfiles,backupfiles} \
+	mkdir ${HOME}/.config/nvim \
+	cp ${PWD}/config/neovim/init.vim ${HOME}/.config/nvim/init.vim \
+	ln -sf ${PWD}/vimrc ${HOME}/.vimrc

@@ -4,7 +4,15 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'preservim/nerdtree'
 call plug#end()
+
+" Multi Language Spell Checking
+" For Spanish dictionary I use:
+" :setlocal spell spelllang=spa
+" :setlocal spell spelllang=spa
+"
+" set spell
 
 set nocompatible
 
