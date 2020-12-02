@@ -3,8 +3,8 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Multi Language Spell Checking
@@ -82,3 +82,6 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 2
 let g:netrw_altv = 1
 let g:netrw_winsize = 20
+
+" YAML 
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
