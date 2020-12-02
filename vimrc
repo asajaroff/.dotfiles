@@ -5,6 +5,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Multi Language Spell Checking
@@ -82,6 +84,10 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 2
 let g:netrw_altv = 1
 let g:netrw_winsize = 20
+
+" Airline Themes
+"
+let g:airline_theme='deus'
 
 " YAML 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
