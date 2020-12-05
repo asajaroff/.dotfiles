@@ -39,4 +39,6 @@ neovim-config:
 
 tmux:
 	sudo apt install tmux -y \
-		git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+		git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack \
+		ln -sf ${HOME}/.dotfiles/config/tmux.conf ${HOME}/.tmux.conf
+
