@@ -36,3 +36,7 @@ neovim-config:
 	mkdir ${HOME}/.config/nvim \
 	cp ${PWD}/config/neovim/init.vim ${HOME}/.config/nvim/init.vim \
 	ln -sf ${PWD}/vimrc ${HOME}/.vimrc
+
+tmux:
+	sudo apt install tmux -y \
+		git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
