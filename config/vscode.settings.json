@@ -3,7 +3,7 @@
     "window.restoreWindows": "all",
     "window.titleBarStyle": "custom",
 
-    "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
+    "workbench.colorTheme": "Solarized Light",
     "workbench.iconTheme": "eq-material-theme-icons-palenight",
 
     "editor.cursorSmoothCaretAnimation": true,
@@ -21,5 +21,8 @@
             "strings": false
         },
         "editor.minimap.enabled": true
-    }
+    },
+    "cSpell.userWords": [
+        "Kubernetes"
+    ]
 }   
