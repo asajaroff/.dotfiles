@@ -31,10 +31,9 @@ vscode-config:
 	fi;
 
 neovim-config:
-	mkdir ${HOME}/.vim/ \
-	mkdir ${HOME}/.vim/{undodir,swapfiles,backupfiles} \
-	mkdir ${HOME}/.config/nvim \
-	cp ${PWD}/config/neovim/init.vim ${HOME}/.config/nvim/init.vim \
+	mkdir -p ${HOME}/.vim/{undodir,swapfiles,backupfiles}
+	mkdir -p ${HOME}/.config/nvim 
+	cp ${PWD}/config/neovim/init.vim ${HOME}/.config/nvim/init.vim
 	ln -sf ${PWD}/vimrc ${HOME}/.vimrc
 
 tmux:
