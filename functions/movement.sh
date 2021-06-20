@@ -1,4 +1,4 @@
-func repos () {
+repos () {
 	if [ -z "$1" ]; then
 		if  [ "${PWD}" = "${REPOS}" ]; then
 			echo "Already at repos folder"
@@ -13,7 +13,7 @@ func repos () {
 	fi
 }
 
-func tmpfile() {
+tmpfile() {
   FILENAME=`date "+%Y-%m-%d_%H:%M:%S"`
   if [ -z "$1" ]; then
     touch ~/Workspace/tmp/$1.md

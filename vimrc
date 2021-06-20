@@ -53,10 +53,6 @@ set et
 " Whitespaces (Activate with :set list)
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 
-" Powerline support
-" set rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim
-let g:powerline_pycmd="py3"
-
 " Filetype 
 filetype plugin on
 
@@ -81,10 +77,6 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 2
 let g:netrw_altv = 1
 let g:netrw_winsize = 20
-
-" Airline Themes
-"
-let g:airline_theme='deus'
 
 " YAML 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -111,9 +103,3 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-

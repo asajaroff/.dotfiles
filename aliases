@@ -4,7 +4,7 @@
 export EDITOR='code --wait'
 
 # Extend PATH
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:~/scripts$PATH
 
 alias kube="/usr/local/bin/kubectl"
 alias k="/usr/local/bin/kubectl"
@@ -44,15 +44,16 @@ source ~/.dotfiles/functions/aws.sh
 source ~/.dotfiles/aliases-tw
 
 # Aliases
-alias terraform=$(ls -1 /usr/local/bin/terraform-0.12* | tail -n 1 )
+# alias terraform=$(ls -1 /usr/local/bin/terraform-0.12* | tail -n 1 )
 
 alias vimrc="vim ~/.dotfiles/vimrc"
 alias zshrc="vim ~/.dotfiles/zshrc"
 alias bashrc="vim ~/.dotfiles/bashrc"
-alias tmuxrc="vim ~/.dotfiles/tmux.conf"
+alias tmuxrc="vim ~/.dotfiles/config/tmux.conf"
 alias aliasrc="vim ~/.dotfiles/aliases"
 alias dotFiles="cd ~/.dotfiles"
 alias devDotFiles="code ~/.dotfiles"
 alias aws-instances='aws ec2 describe-instances | view -'
 
 alias vim="nvim"
+alias tmux="tmux -2"
