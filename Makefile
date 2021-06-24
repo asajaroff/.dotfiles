@@ -1,5 +1,3 @@
-
-
 default: conky yq docker
 
 vscode: vscode-config 
@@ -34,5 +32,6 @@ vscode-config:
 
 # SRE Tooling
 
-KOPS_VERSION := 1.18.2
-	curl -LO https://github.com/kubernetes/kops/releases/download/v$VERSION/kops-darwin-amd64
+# Neovim config
+vim:
+
