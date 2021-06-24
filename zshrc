@@ -19,6 +19,14 @@ source ~/.dotfiles/functions/kubernetes.sh
 source ~/.dotfiles/functions/terraform.sh
 
 #export MANPATH="/usr/local/man:$MANPATH"
+if ! command -v go &> /dev/null
+then
+    echo "go binarie could not be found"
+    exit
+else
+    eval `go env`
+    export PATH=$PATH:$GOPATH/bin
+fi
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
