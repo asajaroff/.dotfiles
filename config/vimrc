@@ -137,6 +137,9 @@ require('telescope').setup{
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
   }
 }
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.pyright.setup{}
+
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys 
