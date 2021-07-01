@@ -137,8 +137,12 @@ require('telescope').setup{
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
   }
 }
+" Language Servers Impementation
+"" https://microsoft.github.io/language-server-protocol/implementors/servers/
+"
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.bashls.setup{}
 
 local nvim_lsp = require('lspconfig')
 
